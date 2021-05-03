@@ -58,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,   KC_W,          KC_E,         KC_R,           KC_T,    KC_Y,          KC_U,          KC_I,         KC_O,         KC_P,       KC_MINS,
   KC_GESC,  KC_A,   LCTL_T(KC_S),  LGUI_T(KC_D), LALT_T(KC_F),   KC_G,    KC_H,          RALT_T(KC_J),  RGUI_T(KC_K), RCTL_T(KC_L), KC_SCLN,    KC_QUOT,
   KC_LSFT,  KC_Z,   KC_X,          KC_C,         KC_V,           KC_B,    KC_N,          KC_M,          KC_COMM,      KC_DOT,       KC_SLSH,    KC_SFTENT,
-  KC_BSLS,  KC_GRV, KC_LBRC,       KC_RBRC,      LOWER,          KC_SPC,  KC_SPC,        RAISE,         KC_LEFT,      KC_DOWN,      KC_UP,      KC_RGHT
+  KC_BSLS,  KC_GRV, KC_LBRC,       KC_RBRC,      LOWER,          KC_BSPC,  KC_SPC,        RAISE,         KC_LEFT,      KC_DOWN,      KC_UP,      KC_RGHT
 ),
 
 [_QWERTY] = LAYOUT_preonic_grid(
@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_MINS,
   KC_GESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_SFTENT,
-  KC_BSLS, KC_LCTL, KC_LGUI, KC_LALT, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+  KC_BSLS, KC_LCTL, KC_LGUI, KC_LALT, LOWER,   KC_BSPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 
 ),
 
@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,  KC_Q,    KC_W,         KC_F,         KC_P,         KC_G,   KC_J,   KC_L,         KC_U,         KC_Y,         KC_SCLN,  KC_MINS,
   KC_GESC, KC_A,    KC_R,         KC_S,         KC_T,         KC_D,   KC_H,   KC_N,         KC_E,         KC_I,         KC_O,     KC_QUOT,
   KC_LSFT, KC_Z,    KC_X,         KC_C,         KC_V,         KC_B,   KC_K,   KC_M,         KC_COMM,      KC_DOT,       KC_SLSH,  KC_SFTENT,
-  KC_BSLS, KC_LCTL, KC_LGUI,      KC_LALT,      LOWER,        KC_SPC, KC_SPC, RAISE,        KC_LEFT,      KC_DOWN,      KC_UP,    KC_RGHT
+  KC_BSLS, KC_LCTL, KC_LGUI,      KC_LALT,      LOWER,        KC_BSPC, KC_SPC, RAISE,        KC_LEFT,      KC_DOWN,      KC_UP,    KC_RGHT
 
 ),
 
@@ -110,9 +110,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_GAMING] = LAYOUT_preonic_grid(
   KC_EQL,     KC_1,     KC_2,   KC_3,   KC_4,   KC_5,   KC_6,   KC_7,         KC_8,         KC_9,         KC_0,       KC_BSPC,
   KC_TAB,     KC_Q,     KC_W,   KC_E,   KC_R,   KC_T,   KC_Y,   KC_U,         KC_I,         KC_O,         KC_P,       KC_MINS,
-  KC_GESC,     KC_A,     KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   RALT_T(KC_J), RGUI_T(KC_K), RCTL_T(KC_L), KC_SCLN,    KC_QUOT,
+  KC_GESC,    KC_A,     KC_S,   KC_D,   KC_F,   KC_G,   KC_H,   RALT_T(KC_J), RGUI_T(KC_K), RCTL_T(KC_L), KC_SCLN,    KC_QUOT,
   KC_LSFT,    KC_Z,     KC_X,   KC_C,   KC_V,   KC_B,   KC_N,   KC_M,         KC_COMM,      KC_DOT,       KC_SLSH,    KC_SFTENT,
-  KC_BSLS,    KC_PSCR,  KC_NO,  KC_M,   LOWER,  KC_SPC, KC_SPC, RAISE,        KC_LEFT,      KC_DOWN,      KC_UP,      KC_RGHT
+  KC_BSLS,    KC_PSCR,  KC_NO,  KC_M,   LOWER,  KC_BSPC,KC_SPC, RAISE,        KC_LEFT,      KC_DOWN,      KC_UP,      KC_RGHT
 ),
 
 /* Lower
@@ -133,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TRNS,    KC_NO,    KC_NO,    KC_UP,    KC_NO,    KC_NO,    KC_NO,    KC_7,     KC_8,     KC_9,     KC_MINS,  KC_F12,
   KC_CAPS,    KC_PSCR,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_NO,    KC_NO,    KC_4,     KC_5,     KC_6,     KC_PLUS,  KC_ASTR,
   KC_TRNS,    KC_BRK,   KC_INS,   KC_SLCK,  KC_NO,    RESET,    KC_0,     KC_1,     KC_2,     KC_3,     KC_EQL,   KC_SLSH,
-  KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_COLN,  KC_DOT,   KC_NO,    KC_NO
+  KC_TRNS,    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_ENT,   KC_TRNS,  KC_COLN,  KC_DOT,   KC_NO,    KC_NO
 ),
 
 /* Raise
@@ -154,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_HOME,  KC_NO,    KC_UP,        KC_NO,    KC_PGUP,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_TRNS,
   KC_ESC,   KC_END,   KC_LEFT,  KC_DOWN,      KC_RGHT,  KC_PGDN,  KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_QUOT,
   KC_LSFT,  KC_GRV,   KC_LBRC,  KC_RBRC,      KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_NO,    KC_SFTENT,
-  KC_NO,    KC_NO,    KC_NO,    LCA(KC_DEL),  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_NO,    KC_NO,    KC_NO,    KC_NO
+  KC_NO,    KC_NO,    KC_NO,    LCA(KC_DEL),  KC_TRNS,  KC_DEL,   KC_TRNS,  KC_TRNS,  KC_NO,    KC_NO,    KC_NO,    KC_NO
 ),
 /* Adjust (Lower + Raise)
  * ,-----------------------------------------------------------------------------------.
