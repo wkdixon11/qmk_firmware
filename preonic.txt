@@ -1,0 +1,8 @@
+user.keyboard=preonic/rev3
+user.keymap=wkdixon11
+general.verbose=False
+general.datetime_fmt=%Y-%m-%d %H:%M:%S
+general.log_fmt=%(levelname)s %(message)s
+general.log_file_fmt=[%(levelname)s] [%(asctime)s] [file:%(pathname)s] [line:%(lineno)d] %(message)s
+general.log_file_level=info
+general.color=True
