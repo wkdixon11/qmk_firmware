@@ -17,7 +17,7 @@
 
 #include "config_common.h"
 
-#define DYNAMIC_KEYMAP_LAYER_COUNT 5
+#define DYNAMIC_KEYMAP_LAYER_COUNT 6
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0x4B50 // "KP"
