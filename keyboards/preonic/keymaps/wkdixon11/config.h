@@ -1,5 +1,7 @@
 #pragma once
 
+#define DYNAMIC_KEYMAP_LAYER_COUNT 6
+
 #ifdef AUDIO_ENABLE
     #define STARTUP_SONG SONG(PREONIC_SOUND)
     // #define STARTUP_SONG SONG(NO_SOUND)

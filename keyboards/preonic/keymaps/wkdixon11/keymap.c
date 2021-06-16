@@ -53,18 +53,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_QWERTY2] = LAYOUT_preonic_grid(
   KC_EQL,   KC_1,          KC_2,          KC_3,          KC_4,           KC_5,     KC_6,          KC_7,          KC_8,          KC_9,         KC_0,              KC_MINS,
-  KC_TAB,   KC_Q,          KC_W,          KC_E,          KC_R,           KC_T,     KC_Y,          KC_U,          KC_I,          KC_O,         KC_P,              KC_BSPC,
-  KC_GESC,  LCTL_T(KC_A),  LGUI_T(KC_S),  LALT_T(KC_D),  KC_F,           KC_G,     KC_H,          KC_J,          RALT_T(KC_K),  RGUI_T(KC_L), RCTL_T(KC_SCLN),   KC_QUOT,
+  KC_TAB,   KC_Q,          KC_W,          KC_E,          KC_R,           KC_T,     KC_Y,          KC_U,          KC_I,          KC_O,         KC_P,              KC_BSLS,
+  KC_GESC,  LSFT_T(KC_A),  LCTL_T(KC_S),  LGUI_T(KC_D),  LALT_T(KC_F),           KC_G,     KC_H,          RALT_T(KC_J),          RGUI_T(KC_K),  RCTL_T(KC_L), RSFT_T(KC_SCLN),   KC_QUOT,
   KC_LSFT,  KC_Z,          KC_X,          KC_C,          KC_V,           KC_B,     KC_N,          KC_M,          KC_COMM,       KC_DOT,       KC_SLSH,           KC_SFTENT,
-  KC_GRV,   KC_LBRC,       KC_RBRC,       KC_NO,         LT(3,KC_BSPC),        KC_SPC,   KC_SPC,        RAISE,         KC_LEFT,       KC_DOWN,      KC_UP,             KC_RGHT
+  KC_GRV,   KC_LBRC,       KC_RBRC,       KC_NO,         LOWER,        KC_BSPC,   KC_SPC,        RAISE,         KC_LEFT,       KC_DOWN,      KC_UP,             KC_RGHT
 ),
 
 [_QWERTY] = LAYOUT_preonic_grid(
   KC_EQL,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS,
-  KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC,
+  KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
   KC_GESC, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_SFTENT,
-  KC_LCTL, KC_LGUI, KC_LALT, LCA(KC_DEL),   LT(3,KC_BSPC),   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+  KC_LCTL, KC_LGUI, KC_LALT, LCA(KC_DEL),   LOWER,   KC_BSPC,  KC_SPC,  RAISE,   KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
 
 ),
 
@@ -83,10 +83,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_COLEMAK] = LAYOUT_preonic_grid(
   KC_EQL,  KC_1,       KC_2,         KC_3,         KC_4,         KC_5,   KC_6,   KC_7,         KC_8,         KC_9,         KC_0,     KC_MINS,
-  KC_TAB,  KC_Q,       KC_W,         KC_F,         KC_P,         KC_G,   KC_J,   KC_L,         KC_U,         KC_Y,         KC_SCLN,  KC_BSPC,
+  KC_TAB,  KC_Q,       KC_W,         KC_F,         KC_P,         KC_G,   KC_J,   KC_L,         KC_U,         KC_Y,         KC_SCLN,  KC_BSLS,
   KC_GESC, KC_A,       KC_R,         KC_S,         KC_T,         KC_D,   KC_H,   KC_N,         KC_E,         KC_I,         KC_O,     KC_QUOT,
   KC_LSFT, KC_Z,       KC_X,         KC_C,         KC_V,         KC_B,   KC_K,   KC_M,         KC_COMM,      KC_DOT,       KC_SLSH,  KC_SFTENT,
-  KC_LCTL, KC_LGUI,    KC_LALT,      LCA(KC_DEL),        LT(3,KC_BSPC),        KC_SPC, KC_SPC, RAISE,        KC_LEFT,      KC_DOWN,      KC_UP,    KC_RGHT
+  KC_LCTL, KC_LGUI,    KC_LALT,      LCA(KC_DEL),        LOWER,        KC_BSPC, KC_SPC, RAISE,        KC_LEFT,      KC_DOWN,      KC_UP,    KC_RGHT
 
 ),
 
@@ -179,15 +179,15 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
           return false;
           break;
-        case QWERTY2:
+        case COLEMAK:
           if (record->event.pressed) {
-            set_single_persistent_default_layer(_QWERTY2);
+            set_single_persistent_default_layer(_COLEMAK);
           }
           return false;
           break;
-       case COLEMAK:
+        case QWERTY2:
           if (record->event.pressed) {
-            set_single_persistent_default_layer(_COLEMAK);
+            set_single_persistent_default_layer(_QWERTY2);
           }
           return false;
           break;
@@ -238,7 +238,7 @@ uint16_t muse_counter = 0;
 uint8_t muse_offset = 70;
 uint16_t muse_tempo = 50;
 
-void encoder_update_user(uint8_t index, bool clockwise) {
+bool encoder_update_user(uint8_t index, bool clockwise) {
   if (muse_mode) {
     if (IS_LAYER_ON(_RAISE)) {
       if (clockwise) {
@@ -262,6 +262,7 @@ void encoder_update_user(uint8_t index, bool clockwise) {
       unregister_code(KC_PGUP);
     }
   }
+    return true;
 }
 
 void dip_switch_update_user(uint8_t index, bool active) {
